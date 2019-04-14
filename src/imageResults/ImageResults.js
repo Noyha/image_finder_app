@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import Image from './image/Image'
+import React, { Component } from 'react';
+import Image from './image/Image';
 
 import GridList from '@material-ui/core/GridList';
 import Dialog from '@material-ui/core/Dialog';
@@ -24,12 +24,14 @@ class ImageResults extends Component {
     render() {
         const { images } = this.props;
         return (
-            <>         
-                <GridList cols={3} cellHeight={180}>
-                    {images.map(img => (
-                        <Image key={ img.id } image={ img } openDialog={ this.handleClickOpen } />
-                    ))}
-                </GridList>
+            <>  
+                { images ? (
+                    <GridList cols={3} cellHeight={180}>
+                        {images.map(img => (
+                            <Image key={ img.id } image={ img } openDialog={ this.handleClickOpen } />
+                        ))}
+                    </GridList>
+                ) : null }
                 <Dialog
                     open={ this.state.open }
                     onClose={ this.handleClose }
@@ -46,4 +48,4 @@ class ImageResults extends Component {
     }
 }
 
-export default ImageResults
+export default ImageResults;
