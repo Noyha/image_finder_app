@@ -24,14 +24,12 @@ class ImageResults extends Component {
     render() {
         const { images } = this.props;
         return (
-            <>  
-                { images ? (
-                    <GridList cols={3} cellHeight={180}>
-                        {images.map(img => (
-                            <Image key={ img.id } image={ img } openDialog={ this.handleClickOpen } />
-                        ))}
-                    </GridList>
-                ) : null }
+            <> 
+                <GridList cols={3} cellHeight={180}>
+                    {images.map(img => (
+                        <Image key={ img.id } image={ img } openDialog={ this.handleClickOpen } />
+                    ))}
+                </GridList>
                 <Dialog
                     open={ this.state.open }
                     onClose={ this.handleClose }
