@@ -4,7 +4,7 @@ import GridListTileBar from '@material-ui/core/GridListTileBar'
 import IconButton from '@material-ui/core/IconButton';
 import ZoomIn from '@material-ui/icons/ZoomIn';
 
-const Image = ({ image, style }) => {
+const Image = ({ image, style, openDialog }) => {
   return (
     <GridListTile style={ style }>
         <img src={ image.largeImageURL } alt={ image.title } />
@@ -12,7 +12,7 @@ const Image = ({ image, style }) => {
             title={ image.tags }
             subtitle={<span>by: { image.user }</span>}
             actionIcon={
-                <IconButton style={{ color: "#ffffff" }}>
+                <IconButton style={{ color: "#ffffff" }} onClick={() => openDialog(image.largeImageURL)}>
                   <ZoomIn/>
                 </IconButton>
             }
