@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ImageResults from '../imageResults/ImageResults'
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 
@@ -27,6 +28,7 @@ class Search extends Component {
   }
 
   render() {
+    const image_results = this.state.images.length > 0 ? <ImageResults images={ this.state.images }/> : null
     return (
       <div className="container">
         <TextField
@@ -52,6 +54,8 @@ class Search extends Component {
             <MenuItem value={30}>30</MenuItem>
             <MenuItem value={50}>50</MenuItem>
         </TextField>
+        <br/>
+        { image_results }
       </div>
     )
   }
