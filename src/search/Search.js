@@ -13,7 +13,7 @@ class Search extends Component {
   handelInputChange = e => {
     const val = e.target.value;
     this.setState({ [e.target.name]: val }, () => {
-      
+
       const cors = 'https://cors-anywhere.herokuapp.com';
       const BASE_URL = 'https://pixabay.com/api';
 
@@ -60,7 +60,7 @@ class Search extends Component {
             <MenuItem value={30}>30</MenuItem>
             <MenuItem value={50}>50</MenuItem>
         </TextField>
-        <br/>
+        <br/><br/>
         { image_results }
       </div>
     )
