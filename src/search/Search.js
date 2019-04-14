@@ -5,11 +5,21 @@ import MenuItem from '@material-ui/core/MenuItem';
 class Search extends Component {
   state = {
     search_image: '',
-    amount: 15
+    amount: 15,
+    images: []
   }
 
   handelInputChange = e => {
-    this.setState({ [e.target.name]: e.target.value })
+    this.setState({ [e.target.name]: e.target.value }, () => {
+
+      const cors = 'https://cors-anywhere.herokuapp.com';
+      const BASE_URL = 'https://pixabay.com/api';
+
+      fetch(`${ cors }/${ BASE_URL }/?key=${ process.env.REACT_APP_PB_KEY }&q=${ this.state.search_image }&image_type=photo&per_page=${ this.state.amount }`)
+      .then(res => res.json())
+      .then(data => this.setState({ images: data.hits }))
+      .catch(err => console.log(err))
+    })
   }
 
   handleAmountChange = e => {
