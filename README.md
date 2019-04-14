@@ -2,8 +2,8 @@
 
 ***By Pixabay Api***
 
-git clone https://github.com/Noyha/image_finder_app.git
+* git clone https://github.com/Noyha/image_finder_app.git
 
-npm install
+* npm install
 
-npm start
+* npm start
